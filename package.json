@@ -1,6 +1,6 @@
 {
   "name": "typedoc-plugin-linkrewriter",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "description": "A TypeDoc plugin for rewriting links in markdown",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -25,14 +25,15 @@
   },
   "homepage": "https://github.com/rbuckton/typedoc-plugin-linkrewriter#readme",
   "peerDependencies": {
-    "typedoc": ">=0.10.0"
+    "typedoc": ">=0.17.0"
   },
   "devDependencies": {
     "@types/jest": "^24.0.13",
+    "@types/marked": "^0.7.3",
     "@types/node": "^12.0.2",
     "jest": "^24.8.0",
     "ts-jest": "^24.0.2",
-    "typedoc": "^0.14.2",
+    "typedoc": "^0.17.0",
     "typescript": "^3.4.5"
   },
   "dependencies": {
