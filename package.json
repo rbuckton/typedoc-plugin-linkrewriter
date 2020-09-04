@@ -36,7 +36,7 @@
     "typescript": "^3.4.5"
   },
   "dependencies": {
-    "marked": "^0.6.2",
+    "marked": "^0.7.0",
     "source-map-support": "^0.5.12",
     "tslib": "^1.9.3"
   }
