@@ -17,8 +17,7 @@
 import * as path from "path";
 import * as marked from "marked";
 import { Component, ContextAwareRendererComponent } from "typedoc/dist/lib/output/components";
-import { Option } from "typedoc/dist/lib/utils";
-import { ParameterType } from "typedoc/dist/lib/utils/options/declaration";
+import { BindOption } from "typedoc/dist/lib/utils";
 import { MarkdownEvent, RendererEvent, PageEvent } from 'typedoc/dist/lib/output/events';
 import { ProjectReflection, DeclarationReflection } from 'typedoc/dist/lib/models';
 import { MarkdownRenderer } from './markdownRenderer';
@@ -42,12 +41,8 @@ export interface Links {
 
 @Component({ name: "linkrewriter" })
 export class LinkRewriterPlugin extends ContextAwareRendererComponent {
-    @Option({
-        name: "rewriteLinks",
-        help: "The path to a JSON file or JS file exporting a Links object.",
-        type: ParameterType.String
-    })
-    rewriteLinks?: string | Links;
+    @BindOption('rewriteLinks')
+    rewriteLinks!: string | Links;
 
     private _links: [RegExp, string | LinkRewriter][] | undefined;
     private _page: PageEvent | undefined;

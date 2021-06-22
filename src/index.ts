@@ -15,7 +15,7 @@
 */
 
 import "source-map-support/register";
-import { PluginHost } from "typedoc/dist/lib/utils";
+import { ParameterType, PluginHost } from 'typedoc/dist/lib/utils';
 import { LinkRewriterPlugin } from "./plugin";
 
 function load(host: PluginHost) {
@@ -23,6 +23,12 @@ function load(host: PluginHost) {
     if (app.renderer.hasComponent("linkrewriter")) {
         return;
     }
+
+    app.options.addDeclaration({
+        name: 'rewriteLinks',
+        help: 'Map of links to rewrite',
+        type: ParameterType.Mixed,
+    });
 
     app.renderer.addComponent("linkrewriter", new LinkRewriterPlugin(app.renderer));
 }

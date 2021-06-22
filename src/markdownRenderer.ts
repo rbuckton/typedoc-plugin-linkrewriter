@@ -14,10 +14,14 @@
    limitations under the License.
 */
 
+import { MarkedOptions } from 'marked';
+
 const fence = "```";
 const tick = "`";
 
 export class MarkdownRenderer implements marked.Renderer {
+    public options:MarkedOptions = {};
+
     private _tableHeader = "";
 
     // blocks
@@ -69,8 +73,11 @@ export class MarkdownRenderer implements marked.Renderer {
     tablerow(content: string): string {
         return `|${content}\n`;
     }
-    
+
     // inlines
+    checkbox(checked:boolean):string {
+        return `[${checked ? 'x' : ' '}]`;
+    }
     codespan(code: string): string {
         return `${tick}${decode(code)}${tick}`;
     }
